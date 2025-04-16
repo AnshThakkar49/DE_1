@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Analysis Result</title>
+</head>
+<body>
+    <h2>Blood Report Analysis</h2>
+    <ul>
+        {% for line in results %}
+            <li>{{ line }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Sentiment Analysis</h3>
+    <p>Polarity: {{ sentiment.polarity }}</p>
+    <p>Subjectivity: {{ sentiment.subjectivity }}</p>
+    <a href="{{ url_for('user_dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

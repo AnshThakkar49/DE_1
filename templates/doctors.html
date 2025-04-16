@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors | MediCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General styling */
+        * {
+            margin: auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #3498db;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            align-items: start;
+            margin-left: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        /* Auth Buttons */
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        .auth-buttons .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .auth-buttons .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Doctors Section */
+        .doctors-section {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .doctors-section h2 {
+            font-size: 2.5rem;
+            color: #0d47a1;
+            margin-bottom: 2rem;
+        }
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .doctor {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .doctor:hover {
+            transform: translateY(-5px);
+        }
+        .doctor img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 4px solid #3498db;
+        }
+        .doctor h3 {
+            font-size: 1.5rem;
+            color: #3498db;
+        }
+        .doctor p {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="" class="logo">MediCare</a>
+                <ul class="nav-links">
+                    <li><a href="">Home</a></li>
+                    <li><a href="doctors">Doctors</a></li>
+                    <li><a href="contact">Contact Us</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="{{url_for('logout')}}" class="logout-btn">Logout</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Doctors Section -->
+    <section class="doctors-section">
+        <div class="container">
+            <h2>Our Doctors</h2>
+            <div class="doctors-grid">
+                <div class="doctor">
+                    <img src="/static/d1.jpg" alt="Doctor 1">
+                    <h3>Dr. John Doe</h3>
+                    <p>Specialty: Endocrinology</p>
+                    <p>Experience: 15 years</p>
+                    <p>Education: MD, PhD</p>
+                </div>
+                <div class="doctor">
+                    <img src="/static/d2.jpg" alt="Doctor 2">
+                    <h3>Dr. Jane Smith</h3>
+                    <p>Specialty: Medicine</p>
+                    <p>Experience: 12 years</p>
+                    <p>Education: MD, MSc</p>
+                </div>
+                <div class="doctor">
+                    <img src="/static/d3.jpg" alt="Doctor 3">
+                    <h3>Dr. Emily Johnson</h3>
+                    <p>Specialty: General Practice</p>
+                    <p>Experience: 10 years</p>
+                    <p>Education: MD, MPH</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MediCare. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

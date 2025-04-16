@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare - Your Health, Our Priority</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: auto;
+            padding: auto;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #3498db;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            align-items: start;
+            margin-left: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .services {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .services h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(250px, 1fr));
+            gap: 2rem; /* Optional: Set a max-width to control the grid width */
+            margin: auto; /* Center the grid */
+        }
+        .service-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            width: 250px;      /* Set a fixed width */
+            height: 350px;     /* Set a fixed height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card img {
+            width: 100%;
+            height: 150px;     /* Set a consistent height */
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .service-card h3, .service-card p {
+            padding: 1rem;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="" class="logo">MediCare</a>
+                <div class="auth-buttons">
+                    <a href="login" class="btn login-btn">LogIn</a>
+                    <a href="signup" class="btn signup-btn">SignUp</a>
+                </div>
+            </nav>
+        </div>
+    </header>    
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Welcome to MediCare</h1>
+            <p>Get the best medical care with our expert doctors and state-of-the-art facilities.</p>
+            <a href="contact" class="btn">Learn More</a>
+        </div>
+    </div>
+    <section class="services">
+        <div class="container">
+            <h2>Diseases Treated</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="/static/diabetes.png" alt="Diabetes" />
+                    <h3>Diabetes</h3>
+                    <p>Advanced diabetes care for all ages.</p>
+                </div>
+                <div class="service-card">
+                    <img src="/static/Malaria.png" alt="Malaria" />
+                    <h3>Malaria</h3>
+                    <p>Expert care for Malaria.</p>
+                </div>
+                <div class="service-card">
+                    <img src="/static/ChikenPox.png" alt="Chicken Pox" />
+                    <h3>Chicken Pox</h3>
+                    <p>Comprehensive care for Chicken Pox.</p>
+                </div>
+                <div class="service-card">
+                    <img src="/static/Jaundice.png" alt="Jaundice" />
+                    <h3>Jaundice</h3>
+                    <p>Jaundice Treatment.</p>
+                  </div>
+                  <div class="service-card">
+                    <img src="/static/Dengue.png" alt="Dengue" />
+                    <h3>Dengue</h3>
+                    <p>Advanced Dengue Treatment.</p>
+                  </div>
+            
+                  <div class="service-card">
+                    <img src="/static/CommonCold.png" alt="Common Cold" />
+                    <h3>Cold</h3>
+                    <p>Cold Treating services.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 MediCare. All rights reserved.</p>
+    </footer>
+</body>
+</html>

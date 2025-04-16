@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information | MediCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General styling */
+        * {
+            margin: auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #3498db;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            align-items: start;
+            margin-left: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        /* Auth Buttons */
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        .auth-buttons .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .auth-buttons .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Form Section */
+        .form-section {
+            max-width: 800px;
+            margin: 100px auto 50px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-section h2 {
+            font-size: 2.5rem;
+            color: #0d47a1;
+            margin-bottom: 2rem;
+        }
+
+        .form-section label {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #3498db;
+            display: block;
+            text-align: left;
+        }
+
+        .form-section input[type="text"],
+        .form-section input[type="number"],
+        .form-section select {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        /* Horizontal checkbox styling */
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: flex-start;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        /* Selected symptoms */
+        .selected-symptoms {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .selected-symptoms ul {
+            padding-left: 20px;
+        }
+
+        /* Submit Button */
+        .form-section button {
+            padding: 15px;
+            font-size: 1.2em;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-section button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="ud" class="logo">MediCare</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Patient Information Form Section -->
+    <div class="form-section">
+        <h2>Patient Information</h2>
+        <form id="patient-form">
+            <!-- Name Input -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+
+            <!-- Sex Dropdown -->
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex" required>
+                <option value="">Select Sex</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Age Input -->
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required />
+
+            <!-- Symptoms Checkboxes -->
+            <label>Symptoms:</label>
+            <div class="checkbox-group" id="symptoms">
+                <label><input type="checkbox" name="symptoms" value="fatigue"> Fatigue</label>
+                <label><input type="checkbox" name="symptoms" value="weight_loss"> Weight Loss</label>
+                <label><input type="checkbox" name="symptoms" value="itching"> Itching</label>
+                <label><input type="checkbox" name="symptoms" value="chills"> Chills</label>
+                <label><input type="checkbox" name="symptoms" value="high_fever"> High Fever</label>
+                <label><input type="checkbox" name="symptoms" value="vomiting"> Vomiting</label>
+                <label><input type="checkbox" name="symptoms" value="skin_rash"> Skin Rash</label>
+                <label><input type="checkbox" name="symptoms" value="continuous_sneezing"> Continuous Sneezing</label>
+                <label><input type="checkbox" name="symptoms" value="cough"> Cough</label>
+                <label><input type="checkbox" name="symptoms" value="headache"> Headache</label>
+                <label><input type="checkbox" name="symptoms" value="joint_pain"> Joint Pain</label>
+                <label><input type="checkbox" name="symptoms" value="lethargy"> Lethargy</label>
+                <label><input type="checkbox" name="symptoms" value="sweating"> Sweating</label>
+                <label><input type="checkbox" name="symptoms" value="nausea"> Nausea</label>
+                <label><input type="checkbox" name="symptoms" value="red_spots_over_body"> Red Spots Over Body</label>
+                <label><input type="checkbox" name="symptoms" value="back_pain"> Back Pain</label>
+                <label><input type="checkbox" name="symptoms" value="malaise"> Malaise</label>
+                <label><input type="checkbox" name="symptoms" value="redness_of_eye"> Redness of Eye</label>
+                <label><input type="checkbox" name="symptoms" value="sinus_pressure"> Sinus Pressure</label>
+                <label><input type="checkbox" name="symptoms" value="runny_nose"> Runny Nose</label>
+                <label><input type="checkbox" name="symptoms" value="sore_throat"> Sore Throat</label>
+            </div>
+
+            <!-- Selected Symptoms -->
+            <div class="selected-symptoms" id="selected-symptoms">
+                <h3>Selected Symptoms:</h3>
+                <ul></ul>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="auth-buttons">
+                <a href="report" class="btn">Submit</a>
+                <a href="ud" class="btn">Home</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MediCare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const formElement = document.getElementById('patient-form');
+        const selectedSymptomsElement = document.getElementById('selected-symptoms').querySelector('ul');
+        const symptomsCheckboxes = document.querySelectorAll('input[name="symptoms"]');
+
+        let form = {
+            name: '',
+            sex: '',
+            age: '',
+            symptoms: []
+        };
+
+        // Update the form object based on user input
+        formElement.addEventListener('input', (e) => {
+            const { name, value } = e.target;
+            if (name === 'symptoms') {
+                if (e.target.checked) {
+                    form.symptoms.push(value);
+                } else {
+                    form.symptoms = form.symptoms.filter(symptom => symptom !== value);
+                }
+            } else {
+                form[name] = value;
+            }
+            displaySelectedSymptoms();
+        });
+
+        formElement.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log(form);
+            alert('Form submitted! Check the console for data.');
+        });
+
+        function displaySelectedSymptoms() {
+            selectedSymptomsElement.innerHTML = '';
+            form.symptoms.forEach(symptom => {
+                const li = document.createElement('li');
+                li.textContent = symptom.replace(/_/g, ' ');
+                selectedSymptomsElement.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>
