@@ -198,9 +198,9 @@
             <input type="text" id="name" name="name" required />
 
             <!-- Sex Dropdown -->
-            <label for="sex">Sex:</label>
+            <label for="gender">Gender:</label>
             <select id="sex" name="sex" required>
-                <option value="">Select Sex</option>
+                <option value="">Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
@@ -210,30 +210,31 @@
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" required />
 
+            <!-- Blood Pressure Dropdown -->
+            <label for="blood_pressure">Blood Pressure</label>
+            <select id="blood_pressure" name="blood_pressure" required>
+                <option value="">Select</option>
+                <option value="Low">Low</option>
+                <option value="Normal">Normal</option>
+                <option value="High">High</option>
+            </select>
+
+            <!-- Cholestrol_Level -->
+            <label for="Cholestrol_Level">Cholestrol Level</label>
+            <select id="cholestrol_level" name="cholestrol_level" required>
+                <option value="">Select</option>
+                <option value="Low">Low</option>
+                <option value="Normal">Normal</option>
+                <option value="High">High</option>
+            </select>
+
             <!-- Symptoms Checkboxes -->
             <label>Symptoms:</label>
             <div class="checkbox-group" id="symptoms">
-                <label><input type="checkbox" name="symptoms" value="fatigue"> Fatigue</label>
-                <label><input type="checkbox" name="symptoms" value="weight_loss"> Weight Loss</label>
-                <label><input type="checkbox" name="symptoms" value="itching"> Itching</label>
-                <label><input type="checkbox" name="symptoms" value="chills"> Chills</label>
-                <label><input type="checkbox" name="symptoms" value="high_fever"> High Fever</label>
-                <label><input type="checkbox" name="symptoms" value="vomiting"> Vomiting</label>
-                <label><input type="checkbox" name="symptoms" value="skin_rash"> Skin Rash</label>
-                <label><input type="checkbox" name="symptoms" value="continuous_sneezing"> Continuous Sneezing</label>
-                <label><input type="checkbox" name="symptoms" value="cough"> Cough</label>
-                <label><input type="checkbox" name="symptoms" value="headache"> Headache</label>
-                <label><input type="checkbox" name="symptoms" value="joint_pain"> Joint Pain</label>
-                <label><input type="checkbox" name="symptoms" value="lethargy"> Lethargy</label>
-                <label><input type="checkbox" name="symptoms" value="sweating"> Sweating</label>
-                <label><input type="checkbox" name="symptoms" value="nausea"> Nausea</label>
-                <label><input type="checkbox" name="symptoms" value="red_spots_over_body"> Red Spots Over Body</label>
-                <label><input type="checkbox" name="symptoms" value="back_pain"> Back Pain</label>
-                <label><input type="checkbox" name="symptoms" value="malaise"> Malaise</label>
-                <label><input type="checkbox" name="symptoms" value="redness_of_eye"> Redness of Eye</label>
-                <label><input type="checkbox" name="symptoms" value="sinus_pressure"> Sinus Pressure</label>
-                <label><input type="checkbox" name="symptoms" value="runny_nose"> Runny Nose</label>
-                <label><input type="checkbox" name="symptoms" value="sore_throat"> Sore Throat</label>
+                <label><input type="checkbox" name="symptoms" value="Fever"> Fever </label>
+                <label><input type="checkbox" name="symptoms" value="Cough"> Cough </label>
+                <label><input type="checkbox" name="symptoms" value="Fatigue"> Fatigue </label>
+                <label><input type="checkbox" name="symptoms" value="Difficulty Breathing"> Difficulty Breathing </label>
             </div>
 
             <!-- Selected Symptoms -->
