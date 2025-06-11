@@ -177,9 +177,47 @@
             margin-top: 3rem;
         }
     </style>
+        <script>
+        const formElement = document.getElementById('patient-form');
+        const selectedSymptomsElement = document.getElementById('selected-symptoms').querySelector('ul');
+        const symptomsCheckboxes = document.querySelectorAll('input[name="symptoms"]');
+        let form = {
+            name: '',
+            sex: '',
+            age: '',
+            symptoms: []
+        };
+        // Update the form object based on user input
+        formElement.addEventListener('input', (e) => {
+            const { name, value } = e.target;
+            if (name === 'symptoms') {
+                if (e.target.checked) {
+                    form.symptoms.push(value);
+                } else {
+                    form.symptoms = form.symptoms.filter(symptom => symptom !== value);
+                }
+            } else {
+                form[name] = value;
+            }
+            displaySelectedSymptoms();
+        });
+        formElement.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log(form);
+            alert('Form submitted! Check the console for data.');
+        });
+
+        function displaySelectedSymptoms() {
+            selectedSymptomsElement.innerHTML = '';
+            form.symptoms.forEach(symptom => {
+                const li = document.createElement('li');
+                li.textContent = symptom.replace(/_/g, ' ');
+                selectedSymptomsElement.appendChild(li);
+            });
+        }
+    </script>
 </head>
 <body>
-
     <!-- Header Section -->
     <header>
         <div class="container">
@@ -188,7 +226,6 @@
             </nav>
         </div>
     </header>
-
     <!-- Patient Information Form Section -->
     <div class="form-section">
         <h2>Patient Information</h2>
@@ -196,7 +233,6 @@
             <!-- Name Input -->
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required />
-
             <!-- Sex Dropdown -->
             <label for="gender">Gender:</label>
             <select id="sex" name="sex" required>
@@ -209,7 +245,7 @@
             <!-- Age Input -->
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" required />
-
+            
             <!-- Blood Pressure Dropdown -->
             <label for="blood_pressure">Blood Pressure</label>
             <select id="blood_pressure" name="blood_pressure" required>
@@ -245,59 +281,14 @@
 
             <!-- Submit Button -->
             <div class="auth-buttons">
-                <a href="report" class="btn">Submit</a>
-                <a href="ud" class="btn">Home</a>
+                <button type="submit" class="btn">Submit</button>
+                <button href="ud" class="btn">Home</button>
             </div>
         </form>
     </div>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 MediCare. All rights reserved.</p>
     </footer>
-
-    <script>
-        const formElement = document.getElementById('patient-form');
-        const selectedSymptomsElement = document.getElementById('selected-symptoms').querySelector('ul');
-        const symptomsCheckboxes = document.querySelectorAll('input[name="symptoms"]');
-
-        let form = {
-            name: '',
-            sex: '',
-            age: '',
-            symptoms: []
-        };
-
-        // Update the form object based on user input
-        formElement.addEventListener('input', (e) => {
-            const { name, value } = e.target;
-            if (name === 'symptoms') {
-                if (e.target.checked) {
-                    form.symptoms.push(value);
-                } else {
-                    form.symptoms = form.symptoms.filter(symptom => symptom !== value);
-                }
-            } else {
-                form[name] = value;
-            }
-            displaySelectedSymptoms();
-        });
-
-        formElement.addEventListener('submit', (e) => {
-            e.preventDefault();
-            console.log(form);
-            alert('Form submitted! Check the console for data.');
-        });
-
-        function displaySelectedSymptoms() {
-            selectedSymptomsElement.innerHTML = '';
-            form.symptoms.forEach(symptom => {
-                const li = document.createElement('li');
-                li.textContent = symptom.replace(/_/g, ' ');
-                selectedSymptomsElement.appendChild(li);
-            });
-        }
-    </script>
-
 </body>
 </html>

@@ -3,17 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Report Analysis Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f9fb;
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 5rem auto;
+            background-color: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 2rem;
+            text-decoration: none;
+            color: #fff;
+            background-color: #3498db;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-center {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h2>Blood Report Analysis</h2>
-    <ul>
-        {% for line in results %}
-            <li>{{ line }}</li>
-        {% endfor %}
-    </ul>
-    <h3>Sentiment Analysis</h3>
-    <p>Polarity: {{ sentiment.polarity }}</p>
-    <p>Subjectivity: {{ sentiment.subjectivity }}</p>
-    <a href="{{ url_for('user_dashboard') }}">Back to Dashboard</a>
+    <div class="container">
+        <h2>Blood Report Analysis</h2>
+        <ul>
+            {% for line in results %}
+                <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+        <div class="btn-center">
+            <a href="{{ url_for('user_dashboard') }}">Back to Dashboard</a>
+        </div>
+        <p><em>This report is auto-generated for preliminary insights and is not a substitute for medical advice.</em></p>
+    </div>
 </body>
 </html>
