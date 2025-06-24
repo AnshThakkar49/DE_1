@@ -63,9 +63,9 @@
     <div class="container">
         <h2>Blood Report Analysis</h2>
         <ul>
-            {% if result %}
-                <h3>Predicted Disease: {{ result }}</h3>
-            {% endif %}
+            {% for line in results %}
+                <li>{{ line }}</li>
+            {% endfor %}
         </ul>
         <div class="btn-center">
             <a href="{{ url_for('user_dashboard') }}">Back to Dashboard</a>

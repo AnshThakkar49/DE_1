@@ -132,7 +132,7 @@
         .logout-btn {
             background-color: #e74c3c;
             color: #fff;
-            padding: 0.8rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             text-decoration: none;
             border-radius: 5px;
             font-weight: 500;
@@ -178,9 +178,9 @@
             <nav>
                 <a href="" class="logo">MediCare</a>
                 <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="doctors">Doctors</a></li>
-                    <li><a href="contact">Contact Us</a></li>
+                    <li><a href="{{ url_for('user_dashboard') }}">Home</a></li>
+                    <li><a href="{{ url_for('doctors') }}">Doctors</a></li>
+                    <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
                 </ul>
                 <a href="{{url_for('logout')}}" class="logout-btn">Logout</a>
             </nav>

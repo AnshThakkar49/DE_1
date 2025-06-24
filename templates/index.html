@@ -146,10 +146,10 @@
     <header>
         <div class="container">
             <nav>
-                <a href="" class="logo">MediCare</a>
+                <a href="{{ url_for('home') }}" class="logo">MediCare</a>
                 <div class="auth-buttons">
                     <a href="login" class="btn login-btn">LogIn</a>
-                    <a href="signup" class="btn signup-btn">SignUp</a>
+                    <a href="{{ url_for('signup') }}" class="btn signup-btn">SignUp</a>
                 </div>
             </nav>
         </div>
@@ -158,7 +158,7 @@
         <div class="hero-content">
             <h1>Welcome to MediCare</h1>
             <p>Get the best medical care with our expert doctors and state-of-the-art facilities.</p>
-            <a href="contact" class="btn">Learn More</a>
+            <a href="learn_more" class="btn">Learn More</a>
         </div>
     </div>
     <section class="services">

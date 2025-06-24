@@ -3,6 +3,8 @@ import base64
 import numpy as np
 import base64
 import cv2
+import pickle
+import pandas as pd
 from PIL import Image
 from io import BytesIO
 from flask import Flask, render_template, request, session, redirect, url_for, flash
@@ -30,6 +32,14 @@ def allowed_file(filename):
 def home():
     return render_template('index.html')
 
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+@app.route('/learn_more')
+def learn_more():
+    return render_template('learn_more.html')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -56,6 +66,39 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('home'))
 
+# Load model and encoder
+with open("disease_prediction_model.pkl", "rb") as f:
+    disease_model = pickle.load(f)
+with open("label_encoder.pkl", "rb") as f:
+    label_encoder = pickle.load(f)
+
+# Load valid symptoms (drop NaN column)
+training_df = pd.read_csv("Training.csv")
+training_df = training_df.loc[:, ~training_df.columns.str.contains('^Unnamed')]
+symptom_list = training_df.columns[:-1].tolist()
+symptom_list_lower = [s.lower().strip() for s in symptom_list]
+
+@app.route('/form')
+def form_page():
+    return render_template('form.html', symptoms=symptom_list)
+
+@app.route('/predict_disease', methods=['POST'])
+def predict_disease():
+    input_symptoms = request.form.getlist('symptoms')
+    input_symptoms = [s.lower().strip() for s in input_symptoms]
+
+    input_data = [1 if sym in input_symptoms else 0 for sym in symptom_list_lower]
+
+    if len(input_data) != disease_model.n_features_in_:
+        return f"❌ Feature count mismatch: expected {disease_model.n_features_in_}, got {len(input_data)}", 400
+
+    input_data = np.array(input_data).reshape(1, -1)
+
+    prediction = disease_model.predict(input_data)[0]
+    predicted_label = label_encoder.inverse_transform([prediction])[0]
+
+    return render_template('report_result.html', result=predicted_label)
+
 @app.route('/upload_report', methods=['GET', 'POST'])
 def upload_report():
     if request.method == 'POST':
@@ -74,7 +117,7 @@ def upload_report():
             results = analyze_blood_report(filepath)
             sentiment = analyze_sentiment(" ".join(results))
 
-            return render_template('report_result.html', results=results, sentiment=sentiment)
+            return render_template('report_result1.html', results=results, sentiment=sentiment)
         else:
             return render_template('report_analyzer.html', msg="Invalid file format. Only PDFs are allowed.")
 
@@ -130,10 +173,6 @@ def predict_skin_live():
 @app.route('/doctors')
 def doctors():
     return render_template('doctors.html')
-
-@app.route('/form')
-def form_page():
-    return render_template('form.html')
 
 @app.route('/report_analyzer')
 def report_analyzer():

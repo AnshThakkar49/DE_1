@@ -43,6 +43,26 @@
         button:hover {
             background-color: #27ae60;
         }
+        /* Header Section */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #3498db;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +74,14 @@
     <title>Upload Blood Report</title>
 </head>
 <body>
+     <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="" class="logo">MediCare</a>
+            </nav>
+        </div>
+    </header>
     <div class="container">
         <h2>Upload Blood Report</h2>
         {% if msg %}
