@@ -1,1 +1,11 @@
 Flask
+tensorflow
+opencv-python
+numpy
+pandas
+scikit-learn
+gunicorn
+Pillow
+pdfplumber
+textblob
+spacy
